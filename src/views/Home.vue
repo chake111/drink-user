@@ -293,6 +293,11 @@ const getCartQty = (drinkId) => {
 
 // 快速加入购物车（不选口味，直接添加）
 const quickAddToCart = (drink) => {
+  // 如果饮品有口味选项，必须打开详情弹窗让用户选择口味
+  if (drink.flavors && drink.flavors.length > 0) {
+    showDrinkDetail(drink)
+    return
+  }
   // 检查是否已有相同饮品且无口味的条目
   const existing = cartItems.value.find(i => i.id === drink.id && !i.spec)
   if (existing) {
@@ -311,6 +316,15 @@ const quickAddToCart = (drink) => {
 // 带口味加入购物车
 const addToCartWithFlavor = () => {
   if (!detailDrink.value) return
+
+  // 校验所有口味组是否都已选择
+  if (detailDrink.value.flavors && detailDrink.value.flavors.length > 0) {
+    const missing = detailDrink.value.flavors.filter(f => !selectedFlavors[f.name])
+    if (missing.length > 0) {
+      showToast(`请选择${missing.map(f => f.name).join('、')}`)
+      return
+    }
+  }
 
   const spec = buildSpec()
   // 查找已有的相同饮品+相同口味的条目
