@@ -8,7 +8,7 @@
           <path d="M5 22h14"/>
         </svg>
       </div>
-      <h2 class="login-title">茶咖优选</h2>
+      <h2 class="login-title">茶优选</h2>
       <p class="login-sub">每一杯，都是精选</p>
     </div>
     <div class="login-body">

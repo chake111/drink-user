@@ -25,14 +25,6 @@
 
     <!-- 功能列表 -->
     <van-cell-group inset class="menu-group">
-      <van-cell title="我的订单" is-link @click="goOrders">
-        <template #icon>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="margin-right:8px">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>
-          </svg>
-        </template>
-      </van-cell>
       <van-cell title="收货地址" is-link>
         <template #icon>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="margin-right:8px">
@@ -90,10 +82,6 @@ onMounted(() => {
   }
 })
 
-const goOrders = () => {
-  router.push('/orders')
-}
-
 const handleLogout = async () => {
   try {
     await showDialog({ title: '提示', message: '确定退出登录吗？' })
@@ -139,6 +127,7 @@ const handleLogout = async () => {
   opacity: .7;
   margin-top: 4px;
 }
+
 .menu-group {
   margin-top: 12px;
 }

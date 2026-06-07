@@ -10,7 +10,7 @@
         </svg>
       </div>
       <span class="brand-text">
-        茶咖优选
+        茶优选
         <small>营业中</small>
       </span>
     </div>
